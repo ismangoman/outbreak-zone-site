@@ -1,0 +1,7 @@
+Replace the four screenshot slots by adding:
+city.jpg
+wasteland.jpg
+horde.jpg
+bloodmoon.jpg
+
+See README.md for details.
