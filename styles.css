@@ -59,7 +59,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .header-actions{display:flex;align-items:center;gap:19px;margin-left:auto}
 .header-search{display:grid;place-items:center;width:39px;height:39px;background:transparent;border:1px solid var(--line-strong);color:var(--muted);transition:color .2s,border .2s}
 .header-search:hover{border-color:var(--acid);color:var(--acid)}
-.header-cta{display:flex;align-items:center;gap:14px;border:1px solid var(--acid);color:var(--acid);font:700 11px var(--mono);letter-spacing:.065em;padding:13px 18px;min-width:max-content;transition:background .2s,color .2s}
+.header-cta{cursor:pointer;display:flex;align-items:center;gap:14px;border:1px solid var(--acid);color:var(--acid);font:700 11px var(--mono);letter-spacing:.065em;padding:13px 18px;min-width:max-content;transition:background .2s,color .2s}
 .header-cta:hover{background:var(--acid);color:var(--acid-dark)}
 .mobile-menu{display:none;background:none;border:0;padding:6px;color:var(--ink)}
 
@@ -608,3 +608,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   .toast{left:12px;right:12px;text-align:center}
 }
 @media(max-width:380px){.hero h1{font-size:44px}.hero-eyebrow{font-size:8px}.copy-ip span{display:none}.header-search{display:none}.cycle-days strong{font-size:7px}.doc-crumbs>span{display:none}}
+
+
+/* Make the server identity unmistakable before the download action */
+.server-intro{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:0 0 26px}
+.server-intro-label{display:inline-block;background:var(--acid);color:#192015;padding:9px 12px;font:800 13px var(--mono);letter-spacing:.04em}
+.server-intro-detail{color:#cdd4c4;font-size:14px;line-height:1.5;font-weight:500}
+.join-context{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 15px;font-size:12px;color:#cad0be}
+.join-context strong{color:var(--ink);font:700 11px var(--mono);letter-spacing:.025em}
+.join-context-pip{width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 0 4px rgba(200,213,143,.1)}
+@media(max-width:600px){.server-intro{margin-bottom:22px;gap:9px}.server-intro-label{font-size:10px;padding:8px 9px;letter-spacing:0}.server-intro-detail{font-size:12px;max-width:320px}.join-context{font-size:11px;gap:7px 10px}.join-context strong{font-size:10px}.hero-eyebrow{margin-bottom:17px}.hero-subcopy{margin-top:20px;margin-bottom:21px}}
