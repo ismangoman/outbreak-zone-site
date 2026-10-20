@@ -50,10 +50,10 @@ function sectionTag(num, text){return `<div class="section-tag"><span class="tag
 function arrowLink(text, attrs='', cls=''){return `<a class="arrow-link ${cls}" ${attrs}><span>${text}</span>${icon('diagonal',18)}</a>`;}
 
 const GALLERY = [
-  {src:'assets/screenshots/city.jpg',num:'01',title:'THE LAST SAFE PLACE',label:'THE CITY',large:true},
-  {src:'assets/screenshots/wasteland.jpg',num:'02',title:'NOTHING STAYS QUIET',label:'THE WASTELAND'},
-  {src:'assets/screenshots/horde.jpg',num:'03',title:'THEY HEARD YOU',label:'THE INFECTED'},
-  {src:'assets/screenshots/bloodmoon.jpg',num:'04',title:'THE SKY TURNS RED',label:'BLOOD MOON',large:true},
+  {src:'assets/screenshots/sunset-city.jpg',num:'01',title:'THE CITY STILL STANDS',label:'THE CITY',alt:'Overgrown ruined city rooftops at sunset',large:true},
+  {src:'assets/screenshots/shop-aisle.jpg',num:'02',title:'CHECK EVERY CORNER',label:'SCAVENGING',alt:'Zombies between the shelves of an abandoned shop'},
+  {src:'assets/screenshots/hallway-zombies.jpg',num:'03',title:'THEY HEARD YOU',label:'THE INFECTED',alt:'Zombies approaching through an overgrown red-carpeted hallway'},
+  {src:'assets/screenshots/night-horde.jpg',num:'04',title:'NOTHING STAYS QUIET',label:'AFTER DARK',alt:'A horde of zombies gathered in the city streets at night',large:true},
 ];
 const FEATURES = [
   {icon:'shield',no:'01',title:'A CITY TO RETURN TO',detail:'Spawn among the ruins. Secure entry. Your own private chest loot. A place to regroup before heading out.'},
@@ -69,12 +69,7 @@ const FEATURES = [
 
 function galleryCard(item){
   return `<div class="gallery-card ${item.large?'gallery-card-large':''}" data-reveal>
-    <img class="gallery-image" src="${item.src}" alt="${item.label} screenshot" loading="lazy" />
-    <div class="gallery-placeholder" aria-label="Screenshot placeholder for ${item.label}">
-      <div class="placeholder-target"><span></span><span></span><span></span><span></span>${icon('layers',31)}</div>
-      <span class="placeholder-text">YOUR SCREENSHOT HERE</span>
-      <span class="placeholder-filename">${item.src.split('/').pop()}</span>
-    </div>
+    <img class="gallery-image" src="${item.src}" alt="${item.alt}" loading="lazy" />
     <div class="gallery-caption"><span>${item.num} / ${item.label}</span><strong>${item.title}</strong>${icon('diagonal',20)}</div>
   </div>`;
 }
@@ -128,7 +123,7 @@ function home(){return `${header()}
   ['04','GIVE IT SOME MEMORY','Allocate 4 to 6 GB of RAM. The pack runs Minecraft 1.20.1 on Forge 47.4.10.'],
   ['05','PRESS PLAY','Launch Minecraft, open Multiplayer and select Outbreak Zone. The server is already saved there.']
 ].map(([no,title,body])=>`<div class="join-step" data-reveal><span class="step-index">${no}</span><div><h3>${title}</h3><p>${body}</p></div><span class="step-line"></span></div>`).join('')}</div><aside class="join-aside" data-reveal><div class="join-aside-top"><div class="aside-symbol">${mark()}</div><span>YOUR TICKET OUT</span></div><h3>NOTHING LEFT<br>TO LOSE.</h3><p>Your multiplayer list is ready. All you need is the modpack.</p><a class="button button-primary aside-button" href="${MODPACK}" target="_blank" rel="noopener noreferrer">${icon('download',20)} DOWNLOAD MODPACK ${icon('diagonal',18)}</a><div class="aside-requirements"><div><span>MINECRAFT</span><strong>JAVA 1.20.1</strong></div><div><span>LOADER</span><strong>FORGE 47.4.10</strong></div><div><span>JAVA</span><strong>17 REQUIRED</strong></div><div><span>MEMORY</span><strong>4 TO 6 GB</strong></div></div><span class="aside-fineprint">REAL MINECRAFT ACCOUNTS ONLY</span></aside></div></div></section>
-  <section class="section gallery-section" id="gallery"><div class="wide-container">${sectionTag('05','TRANSMISSIONS FROM THE ZONE')}<div class="section-heading-row"><h2 class="section-headline">A WORLD<br><span>LEFT BEHIND.</span></h2><p>What remains of the world.<br>What might remain of you.</p></div><div class="gallery-grid">${GALLERY.map(galleryCard).join('')}</div><p class="gallery-note">IMAGES PENDING // ADD YOUR OWN SCREENSHOTS TO THE GALLERY</p></div></section>
+  <section class="section gallery-section" id="gallery"><div class="wide-container">${sectionTag('05','TRANSMISSIONS FROM THE ZONE')}<div class="section-heading-row"><h2 class="section-headline">A WORLD<br><span>LEFT BEHIND.</span></h2><p>What remains of the world.<br>What might remain of you.</p></div><div class="gallery-grid">${GALLERY.map(galleryCard).join('')}</div></div></section>
   <section class="manual-banner"><div class="wide-container manual-banner-inner"><div class="manual-banner-copy">${sectionTag('06','SURVIVAL INTELLIGENCE')}<h2>KNOW THE RULES.<br><span>OUTLIVE THE DEAD.</span></h2><p>Commands. Zombies. Revivals. Blood moons. Everything you need to make it through your first night.</p><a class="button button-light" href="#/docs/getting-started">${icon('book',21)} OPEN THE FIELD MANUAL ${icon('arrow',20)}</a></div><div class="manual-stamp" aria-hidden="true"><span>OZ</span><div>FIELD<br>MANUAL</div><small>ISSUE / 001</small></div></div></section>
 </main>${footer()}`;}
 
