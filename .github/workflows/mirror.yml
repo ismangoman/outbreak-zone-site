@@ -1,0 +1,16 @@
+name: Mirror to ismangoman
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push main to ismangoman/outbreak-zone-site
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: git push "https://x-access-token:${MIRROR_TOKEN}@github.com/ismangoman/outbreak-zone-site.git" main:main
